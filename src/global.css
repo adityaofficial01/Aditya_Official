@@ -1,0 +1,200 @@
+/* Importing Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+/* Import Tailwind CSS Layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --primaryWhite: #FFFFFF;
+
+    --primaryRedLight: #fff1f2;
+    --primaryRed: #FFC2C2;
+    --primaryDarkRed: #fdf0f0;
+    --secondaryRed: #c76767;
+    --tertiaryRed: #D40000;
+    --LightRed: #fbe6e6;
+    --primaryGraphRed: rgba(215, 0, 23, 0.06);
+    --extraLightRed: #e98080;
+    --tertiaryGreen: #389338;
+
+    --primaryBlack: rgba(0, 0, 0, 0.07);
+    --secondaryBlack: rgba(0, 0, 0);
+    --tertiaryBlack: #000000;
+
+    --primaryGrey: #a4a4a4;
+    --bgGrey:#f6f6f6;
+    --secondaryGrey: #E1E1E1;
+    --tertiaryGrey: #CBCBCB;
+    --quaternaryGrey: #828282;
+
+    --primaryBlue:#0098FF;
+    --secondaryBlue:#cbeaff;
+    --lightBlue:#f2faff;
+
+
+
+    --primaryFontSize: 1rem;
+    --primaryBorderRadius: 1rem;
+    --secondaryBorderRadius: 1.875rem;
+
+    --primaryFont: 'Anton', sans-serif !important;
+  }
+
+  html {
+    font-family: 'Anton', sans-serif;
+  }
+
+  body {
+    @apply m-0 p-0 box-border  transition-colors duration-700 ease-linear font-Poppins select-text;
+  }
+
+  h1 {
+    @apply text-title26;
+  }
+
+  h2 {
+    @apply text-title24;
+  }
+
+  h3 {
+    @apply text-title20;
+  }
+
+  h4 {
+    @apply text-para md:text-description;
+  }
+
+  p {
+    @apply font-Poppins
+  }
+
+  ::-webkit-scrollbar {
+    @apply bg-white w-1 h-1 rounded-xl
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blue-100 rounded-xl
+  }
+
+  ::selection {
+    @apply bg-blue-100 text-white;
+  }
+}
+
+@layer components {
+  .titleLarge {
+    @apply text-title30 lg:text-title36;
+  }
+  .titleExtraLarge {
+    @apply text-title36  md:text-title40;
+  }
+  .titleSemiLarge {
+    @apply text-title20 md:text-title30;
+  }
+
+  .titleMedium {
+    @apply text-title24 md:text-title26;
+  }
+
+  .titleSmall {
+    @apply text-descriptionSmall landscape:text-title20 lg:text-title20;
+  }
+
+  .titleMini {
+    @apply text-title20
+  }
+
+  .footerTitle {
+    @apply text-title24
+  }
+
+  .redColor {
+    @apply text-blue-100;
+  }
+
+  .commonButton {
+    @apply bg-blue-100 text-white border-2 w-full sm:w-52 h-11 hover:border-blue-100 hover:bg-blue-150 hover:text-blue-100 rounded-full !important;
+  }
+
+  .description {
+    @apply text-description;
+  }
+
+  .paragraph {
+    @apply text-para;
+  }
+  .commonClass{
+    @apply px-3 sm:px-10 lg:px-24 !important
+  }
+
+  .common_container {
+    @apply w-11/12 lg:w-11/12 mx-auto
+  }
+
+  .commonInput {
+    @apply h-11 border bg-Grey-150  placeholder:text-black-100 outline-none text-description px-3 w-full;
+  }
+
+  .labelForm {
+    @apply font-medium mb-1;
+  }
+
+}
+
+.videoWithPlayIcon .ant-image .ant-image-mask:hover {
+  @apply hidden
+}
+
+.ant-form-item-label {
+  @apply p-0 !important;
+}
+
+.ant-collapse-large>.ant-collapse-item>.ant-collapse-content>.ant-collapse-content-box {
+  @apply p-0 !important;
+}
+
+.ant-collapse .ant-collapse-content {
+  @apply border-none border-b-0 border-t-0 rounded-lg !important;
+}
+
+.ant-collapse-header {
+  @apply bg-blue-100 text-black-100 rounded-lg p-4 mb-2 !important;
+}
+
+.ant-layout-header {
+  @apply bg-white p-0 h-auto
+}
+
+.ant-layout-footer {
+  @apply bg-white
+}
+
+.ant-layout {
+  @apply bg-white
+}
+
+.ant-collapse>.ant-collapse-item {
+  @apply border-none
+}
+
+.ant-collapse>.ant-collapse-item>.ant-collapse-header {
+  @apply p-4
+}
+
+::placeholder {
+  @apply font-Poppins text-black-100 !important
+}
+.ant-popover .ant-popover-inner{
+  @apply bg-white
+}
+
+.bar{
+  @apply w-[25vw] h-[105vh] bg-[#f7b49e]
+}
+.overlay{
+  @apply w-[100vw] flex h-[100vh] z-50 overflow-hidden fixed !important
+}
