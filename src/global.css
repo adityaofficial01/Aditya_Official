@@ -73,11 +73,11 @@
   }
 
   ::-webkit-scrollbar {
-    @apply bg-white w-1 h-1 rounded-xl
+    @apply bg-black-200 w-1 h-1 rounded-xl
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-blue-100 rounded-xl
+    @apply bg-Grey-100 rounded-xl
   }
 
   ::selection {

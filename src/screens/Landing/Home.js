@@ -93,7 +93,7 @@ function Home() {
         opacity: 1,
         duration: 1,
         ease: "power2.inOut",
-        stagger: 0.3,
+        stagger: 0.2,
       });
     }
 
@@ -140,15 +140,32 @@ function Home() {
         {/* Additional content to enable scrolling */}
         <div className="Description p-8 flex flex-col justify-center min-h-[100vh] items-center">
           <p className=" descriptionContent text-Grey-100 text-[2rem] max-w-4xl leading-loose my-20 text-left">
-            I’m a multi-disciplinary art director with a focus on Digital
-            Design, Interaction Design, and Photo Editing. I&apos;ve been
-            delivering creative and engaging solutions across brand
-            identity, website, app, and digital media for almost 10 years.
+            I’m a detail-driven React developer with a focus on User Experience, Animation, and Modern Frontend Practices. I’ve been crafting dynamic and engaging web solutions across products, platforms, and digital media for over 3 years.
           </p>
           <p className="  descriptionContent text-Grey-100 mt-12 text-[2rem] max-w-4xl leading-loose my-20 text-left">
-            I’m currently working as a digital designer at Studio MINSK, a
-            branding agency with devotion to motion, in Amsterdam.
+            I’m currently working as a React Developer at Sachtech Solutions, a
+            branding agency with devotion to motion, in Chandigarh.
           </p>
+
+          <div className=" flex flex-col space-y-5 w-1/2  text-Grey-100">
+            <p className="text-[2.5rem]">EXPERTISE</p>
+            <div className="flex text-[1.5rem] justify-between text-left items-center">
+              <p className="text-left">- ANIMATIONS</p>
+              <p className="text-left">- Frontend Development</p>
+            </div>
+            <div className="flex text-[1.5rem] justify-between text-left items-center">
+              <p className="text-left">- React.js</p>
+              <p className="text-left">- Redux</p>
+            </div>
+            <div className="flex text-[1.5rem] justify-between text-left items-center">
+              <p className="text-left">- Component Architecture</p>
+              <p className="text-left">- Performance Optimization</p>
+            </div>
+            <div className="flex text-[1.5rem] justify-between text-left items-center">
+              <p className="text-left">- Responsive Web Design</p>
+              <p className="text-left">- API Integration</p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="absolute flex justify-center items-center w-full top-20">
