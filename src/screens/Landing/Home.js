@@ -5,6 +5,7 @@ import { ScrollTrigger, SplitText } from "gsap/all";
 import CustomImage from "components/CustomImage";
 import { StaticImages } from "utils/StaticImages";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import RecentWorkd from "./RecentWorkd";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -81,7 +82,7 @@ function Home() {
       let descriptionSection = gsap.timeline({
         scrollTrigger: {
           trigger: ".Description",
-          start: "30% 80%",   // when 30% of Description hits 80% of viewport
+          start: "30% 90%",   // when 30% of Description hits 80% of viewport
           toggleActions: "play none none reset",
           // markers: true,    // enable to debug
         },
@@ -97,12 +98,35 @@ function Home() {
       });
     }
 
+    // const cards = gsap.utils.toArray(".stacked-cards .card");
+
+    // let tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".stacked-cards",
+    //     start: "top top",
+    //     // end: "+=" + cards.length * 200, // adjust scroll distance
+    //     scrub: true,
+    //     pin: true,
+    //     markers: true,
+    //   },
+    // });
+
+    // cards.forEach((card, i) => {
+    //   tl.fromTo(
+    //     card,
+    //     { y: 100, opacity: 0, scale: 0.8 },
+    //     { y: 0, opacity: 1, scale: 1, duration: 1, ease: "none" },
+    //      0.5 // stagger overlap (0.5 means next card starts before prev finishes)
+    //   );
+    // });
+
   }, []);
 
 
 
+
   return (
-    <div className="relative">
+    <div className="relative bg-black-200">
       {/* Loading Overlay */}
       <div className="overlay">
         <div className="bar"></div>
@@ -112,6 +136,8 @@ function Home() {
       </div>
 
       <div className="bg-black-200 min-h-[100vh]">
+
+
         {/* Navbar (fixed now) */}
         <div className=" top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 bg-black-200 shadow-cardShadow2">
           <div className="flex items-center">
@@ -138,7 +164,7 @@ function Home() {
         </div>
 
         {/* Additional content to enable scrolling */}
-        <div className="Description p-8 flex flex-col justify-center min-h-[100vh] items-center">
+        <div className="Description  p-8 flex flex-col justify-center min-h-[100vh] items-center">
           <p className=" descriptionContent text-Grey-100 text-[2rem] max-w-4xl leading-loose my-20 text-left">
             I’m a detail-driven React developer with a focus on User Experience, Animation, and Modern Frontend Practices. I’ve been crafting dynamic and engaging web solutions across products, platforms, and digital media for over 3 years.
           </p>
@@ -166,8 +192,9 @@ function Home() {
               <p className="text-left">- API Integration</p>
             </div>
           </div>
-        </div>
+        </div>  
       </div>
+      <RecentWorkd />
       <div className="absolute flex justify-center items-center w-full top-20">
         <DotLottieReact
           className="h-44"

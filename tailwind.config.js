@@ -193,6 +193,7 @@ module.exports = {
       },
       backgroundImage: {
         'gradientBg': `url(${path.resolve(__dirname, 'src/assets/Download/gradientBg.jpg')})`,
+        'milky': `url(${path.resolve(__dirname, 'src/assets/Download/milky-way-9767930.jpg')})`,
         'gradientBg2': "linear-gradient(90deg, #ff512f 0%, #dd2476 100%)",
       },
 
