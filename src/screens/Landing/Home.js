@@ -6,6 +6,8 @@ import CustomImage from "components/CustomImage";
 import { StaticImages } from "utils/StaticImages";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import RecentWorkd from "./RecentWorkd";
+import ScrollVelocity from "./ScrollVelocity";
+// import LogoLoop from "./LogoLoop";s
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -154,47 +156,122 @@ function Home() {
             <button className="text-Grey-100 text-title20 font-light">SOCIAL MEDIA</button>
           </div>
         </div>
+        <div className="relative">
 
-        {/* Text container that will be pinned during scroll */}
-        <div className="textContainer   overflow-hidden flex flex-col justify-center items-center h-[100vh]">
-          <p className="Name text-[10rem] text-Grey-100  text-center mb-20 font-bold">
-            ADITYA RAJPUT
-          </p>
+          {/* Text container that will be pinned during scroll */}
+          <div className="textContainer   overflow-hidden flex flex-col justify-center items-center h-[100vh]">
+            <video
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              src={StaticImages.VIDEO.manCap}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <p className="Name text-[10rem] text-white  text-center mb-20 font-bold">
+              ADITYA RAJPUT
+            </p>
 
+          </div>
         </div>
 
         {/* Additional content to enable scrolling */}
-        <div className="Description  p-8 flex flex-col justify-center min-h-[100vh] items-center">
-          <p className=" descriptionContent text-Grey-100 text-[2rem] max-w-4xl leading-loose my-20 text-left">
+        <div className="Description  p-8 flex flex-col justify-start min-h-[100vh] items-start ml-60">
+          <p className=" descriptionContent text-Grey-100 text-[2rem] max-w-4xl leading-loose mt-[30vh] text-left">
             I’m a detail-driven React developer with a focus on User Experience, Animation, and Modern Frontend Practices. I’ve been crafting dynamic and engaging web solutions across products, platforms, and digital media for over 3 years.
           </p>
-          <p className="  descriptionContent text-Grey-100 mt-12 text-[2rem] max-w-4xl leading-loose my-20 text-left">
+          <p className="  descriptionContent text-Grey-100 mt-20 text-[2rem] font-thin max-w-4xl leading-loose my-20 text-left">
             I’m currently working as a React Developer at Sachtech Solutions, a
             branding agency with devotion to motion, in Chandigarh.
           </p>
 
-          <div className=" flex flex-col space-y-5 w-1/2  text-Grey-100">
-            <p className="text-[2.5rem]">EXPERTISE</p>
-            <div className="flex text-[1.5rem] justify-between text-left items-center">
-              <p className="text-left">- ANIMATIONS</p>
-              <p className="text-left">- Frontend Development</p>
-            </div>
-            <div className="flex text-[1.5rem] justify-between text-left items-center">
-              <p className="text-left">- React.js</p>
-              <p className="text-left">- Redux</p>
-            </div>
-            <div className="flex text-[1.5rem] justify-between text-left items-center">
-              <p className="text-left">- Component Architecture</p>
-              <p className="text-left">- Performance Optimization</p>
-            </div>
-            <div className="flex text-[1.5rem] justify-between text-left items-center">
-              <p className="text-left">- Responsive Web Design</p>
-              <p className="text-left">- API Integration</p>
+          <div className=" flex flex-col justify-between  w-full items-end space-y-5 pr-10 mb-[20vh] text-Grey-100">
+            <div className="flex flex-col justify-between items-start mt-20  w-1/2">
+              <p className="text-[2.5rem]">EXPERTISE</p>
+              <div className="flex text-[1.5rem] justify-between  w-full text-left items-center">
+                <p className="text-left">- ANIMATIONS</p>
+                <p className="text-left">- Frontend Development</p>
+              </div>
+              <div className="flex text-[1.5rem] justify-between text-left w-full items-center">
+                <p className="text-left">- React.js</p>
+                <p className="text-left">- Redux</p>
+              </div>
+              <div className="flex text-[1.5rem] justify-between text-left w-full items-center">
+                <p className="text-left">- Component Architecture</p>
+                <p className="text-left">- Performance Optimization</p>
+              </div>
+              <div className="flex text-[1.5rem] justify-between text-left w-full items-center">
+                <p className="text-left">- Responsive Web Design</p>
+                <p className="text-left">- API Integration</p>
+              </div>
             </div>
           </div>
-        </div>  
+
+
+        </div>
       </div>
+      <div className="w-full overflow-hidden">
       <RecentWorkd />
+
+      </div>
+
+
+      {/* ///logos moving
+      <div>
+        <LogoLoop
+          logos={[
+            {
+              src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+              alt: "React",
+              title: "React",
+              href: "https://react.dev"
+            },
+            {
+              src: "https://redux.js.org/img/redux.svg",
+              alt: "Redux",
+              title: "Redux",
+              href: "https://redux.js.org"
+            },
+            {
+              src: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+              alt: "Figma",
+              title: "Figma",
+              href: "https://figma.com"
+            },
+            {
+              src: "https://upload.wikimedia.org/wikipedia/commons/4/47/Typescript_logo_2020.svg",
+              alt: "TypeScript",
+              title: "TypeScript",
+              href: "https://www.typescriptlang.org/"
+            },
+            {
+              src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+              alt: "Tailwind CSS",
+              title: "Tailwind CSS",
+              href: "https://tailwindcss.com/"
+            },
+            {
+              src: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
+              alt: "Express.js",
+              title: "Express.js",
+              href: "https://expressjs.com/"
+            },
+            {
+              src: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+              alt: "Node.js",
+              title: "Node.js",
+              href: "https://nodejs.org/"
+            }
+          ]}
+          width="100%"
+          height={80}
+          fadeOut
+          scaleOnHover
+          ariaLabel="Technology logos"
+        />
+      </div> */}
+
+      <ScrollVelocity />
       <div className="absolute flex justify-center items-center w-full top-20">
         <DotLottieReact
           className="h-44"
