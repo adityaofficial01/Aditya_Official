@@ -4,6 +4,8 @@ import typing from '../assets/Videos/typing.mp4'
 import smoke from '../assets/Videos/smoke.mp4'
 import smoke2 from '../assets/Videos/smoke2.mp4'
 import manCap from '../assets/Videos/manCap.mp4'
+import stars from '../assets/Videos/stars.mp4'
+import earthRotating from '../assets/Videos/earthRotating.mp4'
 export const StaticImages = {
 
     LOGO: {
@@ -12,7 +14,9 @@ export const StaticImages = {
     VIDEO:{
         TYPING:typing,
         smoke,
+        stars,
         manCap,
+        earthRotating,
         smoke2,
     },
     SPLASH:{

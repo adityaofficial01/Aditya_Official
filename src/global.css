@@ -48,11 +48,10 @@
   html {
     font-family: 'Mulish', sans-serif;
     scroll-behavior: smooth
-    
   }
 
   body {
-    @apply m-0 p-0 box-border transition-colors duration-700 ease-linear font-Poppins select-text;
+    @apply m-0 p-0 box-border transition-colors duration-700 ease-linear font-mulish select-text;
   }
 
   h1 {
@@ -69,10 +68,6 @@
 
   h4 {
     @apply text-para md:text-description;
-  }
-
-  p {
-    @apply font-Poppins
   }
 
   ::-webkit-scrollbar {
@@ -159,17 +154,6 @@
   @apply p-0 !important;
 }
 
-.ant-collapse-large>.ant-collapse-item>.ant-collapse-content>.ant-collapse-content-box {
-  @apply p-0 !important;
-}
-
-.ant-collapse .ant-collapse-content {
-  @apply border-none border-b-0 border-t-0 rounded-lg !important;
-}
-
-.ant-collapse-header {
-  @apply bg-blue-100 text-black-100 rounded-lg p-4 mb-2 !important;
-}
 
 .ant-layout-header {
   @apply bg-white p-0 h-auto
@@ -183,16 +167,9 @@
   @apply bg-white
 }
 
-.ant-collapse>.ant-collapse-item {
-  @apply border-none
-}
-
-.ant-collapse>.ant-collapse-item>.ant-collapse-header {
-  @apply p-4
-}
 
 ::placeholder {
-  @apply font-Poppins text-black-100 !important
+  @apply text-black-100 !important
 }
 
 .ant-popover .ant-popover-inner {
@@ -200,61 +177,66 @@
 }
 
 .bar {
-  @apply w-[25vw] h-[105vh] bg-[#f7b49e]
+  @apply w-[25vw] h-[105vh] bg-[#9ecaf7]
 }
 
 .overlay {
-  @apply w-[100vw] flex h-[100vh] z-50 overflow-hidden fixed !important
+  @apply w-[100vw] flex h-[100vh] z-50 overflow-hidden fixed pointer-events-none !important
 }
 
 /* Add to your global CSS file */
-
-:root {
-  --cursor-type: default;
+/* Instead of applying to everything */
+button, a {
+  cursor: pointer;
 }
 
-* {
-  cursor: var(--cursor-type);
+.faq-collapse .ant-collapse-item {
+  @apply bg-[#2d3035] rounded-xl mb-4 w-full h-24 text-white overflow-hidden border-none;
 }
 
-/* Different cursor themes */
-.theme-pointer {
-  --cursor-type: pointer;
+.faq-collapse .ant-collapse-header {
+  @apply bg-[#3a3a3a] text-white font-medium px-6 py-0
+         flex items-center justify-between h-24 border-none;
+  line-height: 1.2 !important;
 }
 
-.theme-crosshair {
-  --cursor-type: crosshair;
+.faq-collapse .ant-collapse-header-text {
+  @apply text-white flex-1 text-left flex items-center;
+  height: 100%;
 }
 
-.theme-grab {
-  --cursor-type: grab;
+.faq-collapse .ant-collapse-header:hover {
+  @apply bg-[#404040];
 }
 
-/* Custom cursor with image */
-.theme-custom {
-  --cursor-type: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23ff6b6b" stroke="%23fff" stroke-width="2"/></svg>'), auto;
+.faq-collapse .ant-collapse-content {
+  @apply bg-[#3a3a3a] border-t border-[#4a4a4a] border-l-0 border-r-0 border-b-0;
 }
 
-/* Responsive cursor changes */
-@media (hover: hover) {
-  .interactive-area:hover {
-    --cursor-type: pointer;
-  }
+.faq-collapse .ant-collapse-content-box {
+  @apply px-6 py-5 text-white;
 }
 
-/* Context-specific cursors */
-.drag-area {
-  --cursor-type: grab;
+.faq-collapse .ant-collapse-expand-icon,
+.faq-collapse .ant-collapse-arrow {
+  @apply text-[#9ecaf7] flex items-center justify-center h-full;
 }
 
-.drag-area:active {
-  --cursor-type: grabbing;
+.faq-collapse .ant-collapse-item-active .ant-collapse-header {
+  @apply bg-[#3a3a3a] text-white h-24;
 }
 
-.resize-area {
-  --cursor-type: nw-resize;
+.faq-collapse .ant-collapse-item-active {
+  @apply h-auto;
 }
 
-.loading-area {
-  --cursor-type: wait;
+/* Force vertical centering */
+.faq-collapse .ant-collapse-header > * {
+  @apply flex items-center;
+}
+
+.faq-collapse .ant-collapse-item .ant-collapse-header {
+  @apply min-h-24;
+  display: flex !important;
+  align-items: center !important;
 }

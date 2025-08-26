@@ -6,7 +6,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 const SuspenseLoader = () => {
     return (
-        <div className="grid bg-[#f7b49e] items-center min-h-screen">
+        <div className="grid bg-[#9ecaf7] items-center min-h-screen">
             <div className='text-center'>
                 {/* <CustomImage preview={false} height={100} src={StaticImages.SPLASH.splash} /> */}
                 <DotLottieReact

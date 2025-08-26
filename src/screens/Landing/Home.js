@@ -7,11 +7,17 @@ import { StaticImages } from "utils/StaticImages";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import RecentWorkd from "./RecentWorkd";
 import ScrollVelocity from "./ScrollVelocity";
+import { Button, Col, Row } from "antd";
+import { ReactIcons } from "utils/ReactIcons";
+import FAQSection from "./FaqSection";
+import ContactSection from "./ContactSection";
 // import LogoLoop from "./LogoLoop";s
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function Home() {
+
+  const videoRef = React.useRef()
   useGSAP(() => {
     //* Loading Bars Animations
     gsap.to(".bar", {
@@ -47,8 +53,9 @@ function Home() {
         pin: true,
         // markers: true,   // enable for debugging
       },
-      scale: 130,
-      xPercent: -330,
+      scale: 150,
+      // y:400,
+      xPercent: -500,
       ease: "none",
     });
 
@@ -84,7 +91,7 @@ function Home() {
       let descriptionSection = gsap.timeline({
         scrollTrigger: {
           trigger: ".Description",
-          start: "30% 90%",   // when 30% of Description hits 80% of viewport
+          start: "10% 90%",   // when 30% of Description hits 80% of viewport
           toggleActions: "play none none reset",
           // markers: true,    // enable to debug
         },
@@ -98,6 +105,29 @@ function Home() {
         ease: "power2.inOut",
         stagger: 0.2,
       });
+
+
+
+      //earth video animations
+      const startValues = 'center 60%'
+      const endValues = 'bottom top'
+      const video = videoRef.current;
+
+      video.onloadedmetadata = () => {
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: ".video",
+            start: startValues,
+            end: endValues,
+            scrub: true,
+            pin: true,
+            markers: false
+          }
+        }).to(video, {
+          currentTime: video.duration,
+          ease: "none"
+        });
+      };
     }
 
     // const cards = gsap.utils.toArray(".stacked-cards .card");
@@ -124,18 +154,99 @@ function Home() {
 
   }, []);
 
+  const services = [
+    {
+      icon: <ReactIcons.Plane />,
+      title: 'Strategy & Planning',
+      description: 'Increase ROI by 35% with strategic planning and roadmap development that aligns with your business goals.',
+      tags: ['Market Research', 'User Analysis', 'Competitive Analysis', 'ROI Planning']
+    },
+    {
+      icon: <ReactIcons.Users />,
+      title: 'UI/UX Design',
+      description: 'Boost conversions by 40% with user-centered design that transforms visitors into customers.',
+      tags: ['User Research', 'Wireframing', 'Prototyping', 'Design Systems']
+    },
+    {
+      icon: <ReactIcons.Code />,
+      title: 'Development',
+      description: 'Achieve 98/100 PageSpeed scores with modern technologies and performance optimization.',
+      tags: ['React/Next.js', 'Node.js', 'TypeScript', 'API Development']
+    },
+    {
+      icon: <ReactIcons.DataBase />,
+      title: 'Database Architecture',
+      description: 'Reduce query times by 60% with robust database design and implementation for scalable applications.',
+      tags: ['Schema Design', 'Data Modeling', 'Query Optimization', 'Migration Strategy']
+    },
+    {
+      icon: <ReactIcons.Security />,
+      title: 'Security & Performance',
+      description: 'Protect user data with enterprise-grade security measures and 99.9% uptime guarantee.',
+      tags: ['Security Audits', 'Performance Testing', 'Load Balancing', 'Caching Strategy']
+    },
+    {
+      icon: <ReactIcons.Stars />,
+      title: 'AI Integration',
+      description: 'Automate 60% of manual tasks with AI solutions that enhance user experiences and business operations.',
+      tags: ['AI/ML Integration', 'Natural Language', 'Computer Vision', 'Predictive Analytics']
+    }
+  ];
+
+  const processSteps = [
+    {
+      number: 1,
+      title: 'Discovery & Strategy',
+      highlight: '35% more effective',
+      description: 'project outcomes through comprehensive research and planning'
+    },
+    {
+      number: 2,
+      title: 'Design & Prototyping',
+      highlight: '40% higher engagement',
+      description: 'with user-tested interfaces and interactive prototypes'
+    },
+    {
+      number: 3,
+      title: 'Development & Testing',
+      highlight: '98/100 PageSpeed scores',
+      description: 'through optimized code and rigorous testing'
+    },
+    {
+      number: 4,
+      title: 'Launch & Support',
+      highlight: '99.9% uptime',
+      description: 'with continuous monitoring and proactive maintenance'
+    }
+  ];
+
+  const technologies = {
+    frontend: [
+      'React & Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion'
+    ],
+    backend: [
+      'Node.js',
+      'PostgreSQL',
+      'GraphQL',
+      'Redis'
+    ]
+  };
+
 
 
 
   return (
-    <div className="relative bg-black-200">
+    <div className="relative bg-black-200" >
       {/* Loading Overlay */}
-      <div className="overlay">
+      <div className="overlay" >
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
-      </div>
+      </div >
 
       <div className="bg-black-200 min-h-[100vh]">
 
@@ -211,7 +322,7 @@ function Home() {
         </div>
       </div>
       <div className="w-full overflow-hidden">
-      <RecentWorkd />
+        <RecentWorkd />
 
       </div>
 
@@ -272,6 +383,213 @@ function Home() {
       </div> */}
 
       <ScrollVelocity />
+
+      <div className='bg-black h-[200vh]   flex justify-center items-start'>
+        <video
+          className='video'
+          src={StaticImages.VIDEO.earthRotating}
+          controls={false}
+          ref={videoRef}
+          playsInline
+          preload='auto'
+          muted
+          style={{ width: "100%", maxWidth: "1000px" }}
+        />
+      </div>
+
+
+
+      {/* //*Full-StackDesignExpertise  */}
+      <div className='flex justify-center items-center mb-20'>
+        <Button onClick={() => alert('hi')} type="ghost" className="w-32 h-12 cursor-pointer  rounded-4xl bg-[#0e151c] text-[#9ecaf7]">Our Expertise</Button>
+      </div>
+      <div className="flex w-full justify-center itsm-center">
+        <div className="flex flex-col justify-center items-center max-w-4xl">
+          <p className="text-[3.5rem] text-white text-center font-semibold">Front-End Development Expertise</p>
+          <p className="text-[1.3rem] text-white text-center">Delivering measurable results <span className="text-[#9ba3ae]"> through strategic thinking and technical excellence </span></p>
+        </div>
+      </div>
+
+      {/* //* //OUR EXPERTISE SECTION  */}
+      <div className="flex justify-center items-center w-full">
+        <div className="max-w-4xl w-full mt-16 bg-[#1c1c1c] p-5 rounded-xl hover:border-2 hover:border-[#9ecaf7] transition-colors duration-300">
+          <div className="flex justify-between w-full">
+            <p className="text-[#9ecaf7] text-[1.2rem] font-normal">&lt; &gt; <span className="pl-2 text-white">Coding in Progress... </span></p>
+            <p className="text-[#9ecaf7] text-[1.2rem]">100%</p>
+          </div>
+          <div className="w-full min-h-3 bg-[#9ecaf7] rounded-full mt-4"></div>
+
+          {/* Phase sections */}
+          <div className="flex gap-6 mt-6">
+            {/* Design Phase */}
+            <div className="flex-1 bg-[#2a2a2a] rounded-lg p-4 border border-[#404040]">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[#9ecaf7]">⚙️</span>
+                <span className="text-[#9ecaf7] font-medium">Design Phase</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-white text-sm">User Research</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-white text-sm">Wireframing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-white text-sm">UI Design</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Development Phase */}
+            <div className="flex-1 bg-[#2a2a2a] rounded-lg p-4 border border-[#5a7aa8]">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[#9ecaf7]">&lt; &gt;</span>
+                <span className="text-[#9ecaf7] font-medium">Development Phase</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-white text-sm">Frontend</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-white text-sm">Backend</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-white text-sm">Testing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Success message */}
+          <div className="text-center mt-6">
+            <span className="text-white text-lg">Project Successfully Completed! 🎉</span>
+          </div>
+        </div>
+      </div>
+
+
+      {/* //* SERVICES  */}
+      <div className="w-full mt-44 flex justify-center items-center">
+        <Row gutter={[24, 24]} className="max-w-6xl">
+          {services.map((service, index) => (
+            <Col xs={24} md={12} xl={8} key={index}>
+              <div className="bg-[#1c1c1c] rounded-lg p-6 h-full border border-transparent hover:border-[#9ecaf7] transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#9ecaf7]/20">
+                {/* Icon Section */}
+                <div className="bg-[#424f5c] rounded-lg p-4 mb-4 flex items-start justify-start h-16">
+                  <span className="text-[#9ecaf7] text-2xl">{service.icon}</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-white text-xl font-semibold mb-3">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#979ea9] text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {service.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="bg-[#2b2b2b] text-[#bdbdbd] px-3 py-1 rounded-full text-xs border border-none"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div>
+
+
+
+
+
+      <div className="w-full flex justify-center">
+        <div className="max-w-6xl w-full mt-16 bg-[#1a1a1a] p-8 rounded-2xl border  hover:shadow-lg hover:border-[#9ecaf7] hover:shadow-[#9ecaf7]/20 rounded-xl  transition-all duration-300">
+          <Row gutter={[48, 0]}>
+            {/* Left Column - Development Process */}
+            <Col xs={24} lg={16}>
+              <div>
+                <h2 className="text-white text-2xl font-bold mb-8">
+                  Our Development Process
+                </h2>
+
+                <div className="space-y-8">
+                  {processSteps.map((step, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      {/* Number Circle */}
+                      <div className="bg-[#9ecaf7] text-black w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0 mt-1">
+                        {step.number}
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h3 className="text-white text-lg font-semibold mb-2">
+                          {step.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                          <span className="text-white font-medium">{step.highlight}</span>{' '}
+                          <span className="text-[#979ea9]">{step.description}</span>
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Col>
+
+            {/* Right Column - Technologies */}
+            <Col xs={24} lg={8}>
+              <div>
+                <h2 className="text-white text-2xl font-bold mb-8">
+                  Technologies I Use
+                </h2>
+
+                <Row gutter={[24, 24]}>
+                  {/* Frontend */}
+                  <Col xs={24} sm={24}>
+                    <div className="bg-[#2a2a2a] rounded-xl p-6 w-full h-full">
+                      <h3 className="text-white text-lg font-semibold mb-4">
+                        Frontend
+                      </h3>
+                      <ul className="space-y-3">
+                        {technologies.frontend.map((tech, index) => (
+                          <li key={index} className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-[#9ecaf7] rounded-full"></div>
+                            <span className="text-[#979ea9] text-sm">{tech}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </div>
+
+
+
+
+      {/* //FAQ SECTION */}
+      <div className="bg-[#1c1c1c] mt-32 py-20">
+        <FAQSection />
+      </div>
+      <ContactSection />
+
       <div className="absolute flex justify-center items-center w-full top-20">
         <DotLottieReact
           className="h-44"
@@ -282,7 +600,7 @@ function Home() {
         />
       </div>
 
-    </div>
+    </div >
   );
 }
 

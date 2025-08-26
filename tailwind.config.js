@@ -179,7 +179,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      Poppins: ['Anton', ...defaultTheme.fontFamily.sans],
+        mulish: ['Mulish', 'sans-serif'],
     },
     extend: {
       borderRadius: {

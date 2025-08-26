@@ -13,7 +13,6 @@ const RecentWorkd = () => {
     const [currentTextIndex, setCurrentTextIndex] = React.useState(0);
     const cardRef = useRef(null);
     const videoWrapperRef = useRef(null);
-
     const dynamicTexts = [
         "Crafting Digital Experiences",
         "Building Tomorrow's Solutions",
@@ -41,12 +40,15 @@ const RecentWorkd = () => {
 
                 return timeLine
             },
-            defaults: { opacity: 0,delay:2 },
+            defaults: { opacity: 0, delay: 2 },
             extendTimeline: true,
         });
 
         gsap.effects.typing('.descriptionContent')
-    },[])
+
+
+        
+    }, [])
 
     useEffect(() => {
         // GSAP ScrollTrigger animation for scaling from small to full size
