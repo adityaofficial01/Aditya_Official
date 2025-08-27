@@ -5,6 +5,8 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icon
 import { HiOutlineCircleStack, HiUsers } from "react-icons/hi2";
 import { FiShield } from "react-icons/fi";
 import { BsStars } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 
 
 
@@ -19,6 +21,7 @@ export const ReactIcons = {
     DataBase: ({ style, className }) => <HiOutlineCircleStack style={style} className={`${className} bg-transparent text-[#9ecaf7] rounded-full size-7`} />,
     Security: ({ style, className }) => <FiShield style={style} className={`${className} bg-transparent text-[#9ecaf7] rounded-full size-7`} />,
     Stars: ({ style, className }) => <BsStars style={style} className={`${className} bg-transparent text-[#9ecaf7] rounded-full size-7`} />,
+    Hamburger: ({ style, className }) => <GiHamburgerMenu style={style} className={`${className} bg-transparent text-[#9ecaf7]  size-7`} />,
     ArrowLeftCircleIcon: ({ style, className }) => <FaArrowCircleRight style={style} className={`${className} bg-white rounded-full text-red-900 size-10`} />,
     ArrowUpIcon: ({ style, className }) => <MdOutlineKeyboardArrowUp style={style} className={`${className} text-red-900 size-10`} />,
     ArrowDownIcon: ({ style, className }) => <MdOutlineKeyboardArrowDown style={style} className={`${className}  text-red-900 size-10`} />,

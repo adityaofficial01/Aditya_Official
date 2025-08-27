@@ -105,13 +105,7 @@ module.exports = {
     },
     boxShadow: {
       'custom': '0px 0px 4px rgba(255, 255, 255, 0.1)',
-      'cardShadow': '0 0 30px rgba(0, 0, 0, 0.05)',
-      'cardShadow2': '0 0 10px rgba(0, 0, 0, 0.25)',
-      'bottomShadow': '0 5px 5px rgba(0, 0, 0, 0.1)',
-      'inputShadow': '0 2px 10px rgba(0, 0, 0, 0.05)',
-      'golden-high': '0 0 12px rgba(254, 230, 115, 0.7)',
-      'exactDrop': '0px 10px 20px rgba(0, 0, 0, 0.05)',
-      'blueSoft': '0 5px 15px rgba(0, 152, 255, 0.1)',
+      'lightBlue': '0 4px 20px rgba(158, 202, 247, 0.25)', 
       'none': 'none',
     },
     dropShadow: {
@@ -193,7 +187,14 @@ module.exports = {
       },
       backgroundImage: {
         'gradientBg': `url(${path.resolve(__dirname, 'src/assets/Download/gradientBg.jpg')})`,
+        'space': `url(${path.resolve(__dirname, 'src/assets/Images/space.jpg')})`,
         'milky': `url(${path.resolve(__dirname, 'src/assets/Download/milky-way-9767930.jpg')})`,
+        'ravvoo': `url(${path.resolve(__dirname, 'src/assets/ProjectImages/ravvoo.png')})`,
+        'dataCollect2': `url(${path.resolve(__dirname, 'src/assets/ProjectImages/dataCollect2.png')})`,
+        'fyleMystyle': `url(${path.resolve(__dirname, 'src/assets/ProjectImages/fyleMystyle2.png')})`,
+        'TapN': `url(${path.resolve(__dirname, 'src/assets/ProjectImages/TapN.png')})`,
+        'ZipKitch': `url(${path.resolve(__dirname, 'src/assets/ProjectImages/Zipkitchmain.png')})`,
+        'Crew': `url(${path.resolve(__dirname, 'src/assets/ProjectImages/CrewMain.png')})`,
         'gradientBg2': "linear-gradient(90deg, #ff512f 0%, #dd2476 100%)",
       },
 

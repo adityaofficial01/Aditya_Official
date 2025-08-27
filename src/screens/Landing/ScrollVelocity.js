@@ -151,7 +151,7 @@ export const ScrollVelocity = ({
 
     return (
       <div
-        className={`relative overflow-hidden w-screen max-w-none ${parallaxClassName}`}
+        className={`relative overflow-hidden  w-screen max-w-none ${parallaxClassName}`}
         style={{ ...parallaxStyle, width: "100vw" }}
       >
         <motion.div
@@ -165,7 +165,7 @@ export const ScrollVelocity = ({
   }
 
   return (
-    <section className="min-h-96 text-Grey-100  max-w-none overflow-hidden my-60 bg-black-200 " style={{ width: "99.8vw" }}>
+    <section className="min-h-96 text-Grey-100  max-w-none overflow-hidden mt-20 lg:my-60 bg-black-200 " style={{ width: "99.8vw" }}>
       {texts.map((text, index) => (
         <VelocityText
           key={index}

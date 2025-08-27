@@ -1,7 +1,9 @@
 /* Importing Google Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-
+/* 
+To use the 'Anton' font in your component, first ensure this import is present in your global CSS:
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 /* Import Tailwind CSS Layers */
 @tailwind base;
 @tailwind components;
