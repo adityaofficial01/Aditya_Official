@@ -137,27 +137,35 @@ function Home() {
       };
     }
 
-    // const cards = gsap.utils.toArray(".stacked-cards .card");
 
-    // let tl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".stacked-cards",
-    //     start: "top top",
-    //     // end: "+=" + cards.length * 200, // adjust scroll distance
-    //     scrub: true,
-    //     pin: true,
-    //     markers: true,
-    //   },
-    // });
+    //* Progress text animation
+    //* Progress text animation
+    const progressText = document.querySelector(".progressText");
 
-    // cards.forEach((card, i) => {
-    //   tl.fromTo(
-    //     card,
-    //     { y: 100, opacity: 0, scale: 0.8 },
-    //     { y: 0, opacity: 1, scale: 1, duration: 1, ease: "none" },
-    //      0.5 // stagger overlap (0.5 means next card starts before prev finishes)
-    //   );
-    // });
+    if (progressText) {
+      const splitProgressDescription = new SplitText(progressText, { type: "chars" });
+
+      // hide chars initially
+      gsap.set(splitProgressDescription.chars, { x: '-100%', opacity: 0, display: 'inline-block' });
+
+      // timeline with ScrollTrigger
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".progressSection",
+          start: "10% 90%",
+          toggleActions: "play none none reset",
+          // markers: true, // enable to debug
+        },
+      }).to(splitProgressDescription.chars, {
+        x: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.inOut",
+        stagger: 0.05,
+      });
+    }
+
+
 
   }, []);
 
@@ -266,7 +274,7 @@ function Home() {
         <div className="bg-black-200 min-h-[100vh] ">
 
           {/* Navbar (fixed now) */}
-          <div className="top-0 left-0 w-full z-50 flex items-center justify-between sm:px-8 py-4 bg-black-200 shadow-cardShadow2 fixed">
+          <div className="top-0 left-0 w-full z-50 flex items-center justify-between sm:px-8 py-4 bg-black-200 shadow-cardShadow2 ">
             <div className="flex   ">
               <CustomImage
                 src={StaticImages.LOGO.Logo}
@@ -282,10 +290,10 @@ function Home() {
                   className=""
                 />
               </div>
-            ) : ( 
-              <div className="  flex space-x-4 lg:space-x-20">
+            ) : (
+              <div className="  flex z-10 space-x-4 lg:space-x-20">
                 <button onClick={() => navigate(RouterKeys.HOME.PROJECTS)} className="text-Grey-100 text-[15px] lg:text-title20 font-light">PROJECTS</button>
-                <button className="text-Grey-100 text-[15px] lg:text-title20 font-light">ABOUT</button>
+                <button onClick={() => navigate(RouterKeys.HOME.ABOUT_ME)} className="text-Grey-100 text-[15px] lg:text-title20 font-light">ABOUT</button>
                 <button className="text-Grey-100 text-[15px] lg:text-title20 font-light">PLAYGROUND</button>
                 <button className="text-Grey-100 text-[15px] lg:text-title20 font-light">CONTACT</button>
                 <button className="text-Grey-100 text-[15px] lg:text-title20 font-light">SOCIAL MEDIA</button>
@@ -293,7 +301,7 @@ function Home() {
             )}
           </div>
           {/* Add padding top to prevent content being hidden behind fixed navbar */}
-          <div className="pt-[88px] relative">
+          <div className=" relative">
 
             {/* Text container that will be pinned during scroll */}
             <div className="textContainer   overflow-hidden flex flex-col justify-center items-center h-[100vh]">
@@ -348,63 +356,63 @@ function Home() {
           <RecentWorkd />
         </div>
         <div>
-          
+
         </div>
 
         {/* ///logos moving
-      <div>
-        <LogoLoop
-          logos={[
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-              alt: "React",
-              title: "React",
-              href: "https://react.dev"
-            },
-            {
-              src: "https://redux.js.org/img/redux.svg",
-              alt: "Redux",
-              title: "Redux",
-              href: "https://redux.js.org"
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
-              alt: "Figma",
-              title: "Figma",
-              href: "https://figma.com"
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/4/47/Typescript_logo_2020.svg",
-              alt: "TypeScript",
-              title: "TypeScript",
-              href: "https://www.typescriptlang.org/"
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
-              alt: "Tailwind CSS",
-              title: "Tailwind CSS",
-              href: "https://tailwindcss.com/"
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
-              alt: "Express.js",
-              title: "Express.js",
-              href: "https://expressjs.com/"
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
-              alt: "Node.js",
-              title: "Node.js",
-              href: "https://nodejs.org/"
-            }
-          ]}
-          width="100%"
-          height={80}
-          fadeOut
-          scaleOnHover
-          ariaLabel="Technology logos"
-        />
-      </div> */}
+        <div>
+          <LogoLoop
+            logos={[
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+                alt: "React",
+                title: "React",
+                href: "https://react.dev"
+              },
+              {
+                src: "https://redux.js.org/img/redux.svg",
+                alt: "Redux",
+                title: "Redux",
+                href: "https://redux.js.org"
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+                alt: "Figma",
+                title: "Figma",
+                href: "https://figma.com"
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/4/47/Typescript_logo_2020.svg",
+                alt: "TypeScript",
+                title: "TypeScript",
+                href: "https://www.typescriptlang.org/"
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+                alt: "Tailwind CSS",
+                title: "Tailwind CSS",
+                href: "https://tailwindcss.com/"
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
+                alt: "Express.js",
+                title: "Express.js",
+                href: "https://expressjs.com/"
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+                alt: "Node.js",
+                title: "Node.js",
+                href: "https://nodejs.org/"
+              }
+            ]}
+            width="100%"
+            height={80}
+            fadeOut
+            scaleOnHover
+            ariaLabel="Technology logos"
+          />
+        </div> */}
 
         <ScrollVelocity />
 
@@ -437,9 +445,9 @@ function Home() {
         <div className='flex justify-center items-center mb-20'>
           <Button onClick={() => alert('hi')} type="ghost" className="w-32 h-12 cursor-pointer  rounded-4xl bg-[#0e151c] text-[#9ecaf7]">Our Expertise</Button>
         </div>
-        <div className="flex w-full justify-center itsm-center">
+        <div className="flex w-full justify-center itsm-center progressSection">
           <div className="flex flex-col justify-center items-center  max-w-4xl">
-            <p className="text-[1.5rem] sm:text-[2.5rem] lg:text-[3.5rem] text-white text-center font-semibold">Front-End Development Expertise</p>
+            <p className="text-[1.5rem] sm:text-[2.5rem] lg:text-[3.5rem] text-white text-center font-semibold  progressText">Front-End Development Expertise</p>
             <p className="text-[0.9rem] px-4 sm:text-[1.3rem] text-white text-center">Delivering measurable results <span className="text-[#9ba3ae]"> through strategic thinking and technical excellence </span></p>
           </div>
         </div>
@@ -617,14 +625,14 @@ function Home() {
         <ContactSection />
 
         {/* <div className="absolute flex justify-center items-center w-full top-20">
-        <DotLottieReact
-          className="h-44"
-          src="https://lottie.host/dc3709e9-5ff3-47c1-b717-7d64de6cb093/fKXHL9ULaH.lottie"
-          loop
-          color="#000000"
-          autoplay
-        />
-      </div> */}
+          <DotLottieReact
+            className="h-44"
+            src="https://lottie.host/dc3709e9-5ff3-47c1-b717-7d64de6cb093/fKXHL9ULaH.lottie"
+            loop
+            color="#000000"
+            autoplay
+          />
+        </div> */}
 
       </div >
     </>

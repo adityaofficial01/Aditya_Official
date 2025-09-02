@@ -78,13 +78,15 @@ const ContactSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="large"
+              onClick={() => window.open('mailto:rajputaadihr@gmail.com')}
               className="bg-[#9ecaf7] hover:bg-[#7db8e8] border-[#9ecaf7] hover:border-[#7db8e8] text-black font-semibold px-8 py-6 h-auto rounded-lg"
             >
-              Start a Project
+              Drop Me An Email!
             </Button>
             
             <Button 
               size="large"
+              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1rHWkiaI1tvEwvEO60985WygsGQwo4_ql', '_blank')}
               className="bg-transparent hover:bg-[#9ecaf7]/10 border-[#9ecaf7] hover:border-[#9ecaf7] text-[#9ecaf7] hover:text-[#9ecaf7] font-semibold px-8 py-6 h-auto rounded-lg"
             >
               Download Resume

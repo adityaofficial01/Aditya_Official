@@ -2,9 +2,10 @@ import React, { Suspense } from 'react'
 import { RouterKeys } from "./RouterKey";
 import Home from 'screens/Landing/Home';
 import NoDataFound from 'components/NoDataFound';
+import AboutMe from 'screens/AboutMe/AboutMe';
 
 // Lazy load components
-const Projects = React.lazy(() => import("../screens/Projects/projects")); 
+const Projects = React.lazy(() => import("../screens/Projects/projects"));
 
 export const AppRouter = [
   {
@@ -17,6 +18,15 @@ export const AppRouter = [
       <Suspense fallback={<div>Loading Projects...</div>}>
         <Projects />
       </Suspense>
+    ),
+  },
+  {
+    path: RouterKeys.HOME.ABOUT_ME,
+    element: (
+      <Suspense fallback={<div>Loading About...</div>}>
+        <AboutMe />
+      </Suspense>
+
     ),
   },
   {

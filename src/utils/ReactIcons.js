@@ -6,6 +6,9 @@ import { HiOutlineCircleStack, HiUsers } from "react-icons/hi2";
 import { FiShield } from "react-icons/fi";
 import { BsStars } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GoArrowUpRight } from "react-icons/go";
+import { CiClock1 } from "react-icons/ci";
+
 
 
 
@@ -15,6 +18,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export const ReactIcons = {
     MenuBar: () => <IoMenuSharp className={`size-10`} />,
     ArrowRightCircleIcon: ({ style, className }) => <FaCircleArrowLeft style={style} className={`${className} bg-white text-red-900 rounded-full size-10`} />,
+    ArrowUp: ({ style, className }) => <GoArrowUpRight style={style} className={`${className} size-7`} />,
     Plane: ({ style, className }) => <FaTelegramPlane style={style} className={`${className} bg-transparent text-[#9ecaf7] rounded-full size-7`} />,
     Users: ({ style, className }) => <HiUsers style={style} className={`${className} bg-transparent text-[#9ecaf7] rounded-full size-7`} />,
     Code: ({ style, className }) => <FaCode style={style} className={`${className} bg-transparent text-[#9ecaf7] rounded-full size-7`} />,
@@ -29,4 +33,5 @@ export const ReactIcons = {
     PauseIcon: ({ style, className }) => <FaCirclePause style={style} className={`${className} text-white size-14`} />,
     PlayIcon: ({ style, className }) => <FaCirclePlay style={style} className={`${className} text-white size-14`} />,
     Tickicon: ({ style, className }) => <IoCheckmarkSharp style={style} className={`${className} `} />,
+    Clock: ({ style, className }) => <CiClock1 style={style} className={`${className} `} />,
 }

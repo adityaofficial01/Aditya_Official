@@ -11,16 +11,22 @@ import blueSmoke from '../assets/Videos/blueSmoke.mp4'
 import dataCollect from '../assets/ProjectImages/DataCollect.png'
 import ravvoo from '../assets/ProjectImages/ravvoo.png'
 import FyleMyStyle from '../assets/ProjectImages/FyleMyStyle.png'
+import sachtechLogo from '../assets/ProjectImages/achtechLogo.png'
+import EigenLogo from '../assets/ProjectImages/EigenLogo.png'
+import Aditya from '../assets/ProjectImages/Aditya.png'
 import zipkitch from '../assets/ProjectImages/Zipkitch.png'
 export const StaticImages = {
 
     LOGO: {
         Logo: Logo,
+        Aditya
     },
     Images:{
         dataCollect,
         FyleMyStyle,
         ravvoo,
+        sachtechLogo,
+        EigenLogo,
         zipkitch,
     },
     VIDEO:{
